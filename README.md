@@ -4,7 +4,7 @@ The GBM Plus API Python library aims to provide all current API calls to interfa
 
 ## Setup
 
-1. Get the CLINET_ID from the GBM Plus login dashboard
+1. Get the CLIENT_ID from the GBM Plus login dashboard
 ![where to find client id screenshot](.github/images/client_id.png)
 
 2. Keep your USER_EMAIL, USER_PASSWORD and CLIENT_ID safe and secure. You can use environment variables for development.
