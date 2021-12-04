@@ -27,9 +27,9 @@ pip install -r requirements.txt
 
     Linux
     ```shell
-    export USER_EMAIL=xxxxxx@xxxxx.com
-    export USER_PASSWORD=shabadabadashabadabadaenelcentrodelplaneta
-    export CLIENT_ID=xxxxxxxxxxxxxxxxxxx
+    export USER_EMAIL="xxxxxx@xxxxx.com"
+    export USER_PASSWORD="shabadabadashabadabadaenelcentrodelplaneta"
+    export CLIENT_ID="xxxxxxxxxxxxxxxxxxx"
     ```
 
     Windows Powershell
