@@ -7,7 +7,7 @@ The GBM Plus API Python library aims to provide all current API calls to interfa
 1. Get the CLINET_ID from the GBM Plus login dashboard
 ![where to find client id screenshot](.github/images/client_id.png)
 
-2. Keep your USER_EMAIL, PASSWORD and CLIENT_ID safe and secure. You can use environment variables for development.
+2. Keep your USER_EMAIL, USER_PASSWORD and CLIENT_ID safe and secure. You can use environment variables for development.
 
 3. Install the latest version of [Python 3](ttps://wiki.python.org/moin/BeginnersGuide/NonProgrammers)
 
@@ -15,6 +15,11 @@ The GBM Plus API Python library aims to provide all current API calls to interfa
 
 ```shell
 git clone https://github.com/markzuckerbergas/gbmplus-api-python
+```
+
+5. Install requirements
+```shell
+pip install -r requirements.txt
 ```
 
 ## Usage
