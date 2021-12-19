@@ -100,12 +100,23 @@ class Accounts(object):
         payload = {'request': legacy_contract_id}
 
         return self._session.post(metadata, resource, payload)
+    
+    
+    def getPositionSummary(self, legacy_contract_id):
+        """
+        **Get the Position Summary for a given legacy_contract_id **                
+        https://homebroker-api.gbm.com/GBMP/api/Portfolio/GetPositionSummary
 
-
-
-
-
-
-
+        - legacy_contract_id (string): (required)
+        """ 
         
+        metadata = {
+            'tags': ['position summary', 'position'],
+            'operation': 'getPositionSummary'
+        }
+
+        resource = "https://homebroker-api.gbm.com/GBMP/api/Portfolio/GetPositionSummary"
         
+        payload = {'request': legacy_contract_id}
+
+        return self._session.post(metadata, resource, payload)
