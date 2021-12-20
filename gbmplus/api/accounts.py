@@ -41,6 +41,20 @@ class Accounts(object):
         https://api.gbm.com/v2/contracts/{main_contract}/accounts
         """
         return self.getAccounts()
+    
+    
+    def getAccount(self, strategy_name):
+        """
+        **Get user account by name **        
+        """
+        accounts = self.getAccounts()
+        accounts_dict = {element["name"]: element for element in accounts}
+
+        return accounts_dict.get(strategy_name)
+    
+    
+    def getStrategy(self, strategy_name):
+        return self.getAccount(strategy_name)
 
     
     def getCashTransactions(self, account_id, page=None, page_size=None):

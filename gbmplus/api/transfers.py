@@ -17,7 +17,7 @@ class Transfers(object):
         kwargs = locals()
 
         metadata = {
-            'tags': ['transfers', 'origin_account', 'target_acount'],
+            'tags': ['transfers', 'origin_account', 'target_account'],
             'operation': 'transfer'
         }
         
