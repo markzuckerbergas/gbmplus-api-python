@@ -12,7 +12,7 @@ from .config import (
     OUTPUT_LOG, LOG_PATH, LOG_FILE_PREFIX, PRINT_TO_CONSOLE, SUPPRESS_LOGGING
 )
 
-__version__ = '0.1'
+__version__ = '0.11'
 
 class GBMPlusAPI(object):
     """
