@@ -21,9 +21,9 @@ The GBM Plus API Python library aims to provide all current API calls to interfa
 
     Linux
     ```shell
-    export USER_EMAIL="xxxxxx@xxxxx.com"
-    export USER_PASSWORD="shabadabadashabadabadaenelcentrodelplaneta"
-    export CLIENT_ID="xxxxxxxxxxxxxxxxxxx"
+    export USER_EMAIL=xxxxxx@xxxxx.com
+    export USER_PASSWORD=shabadabadashabadabadaenelcentrodelplaneta
+    export CLIENT_ID=xxxxxxxxxxxxxxxxxxx
     ```
 
     Windows Powershell
