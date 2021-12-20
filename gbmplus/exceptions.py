@@ -55,3 +55,13 @@ class APIError(Exception):
 
     def __repr__(self):
         return f"{self.tag}, {self.operation} - {self.status} {self.reason}, {self.message}"
+    
+
+# Order format error
+class OrderFormatError(Exception):
+    def __init__(self, message):
+        self.message = "There was a formatting error in the order. " + message
+        super(OrderFormatError, self).__init__(self.message)
+
+    def __repr__(self):
+        return self.message

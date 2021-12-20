@@ -1,10 +1,12 @@
 from datetime import datetime
+from enum import Enum
 import logging
 import os
 
 from .rest_session import *
 from .api.accounts import Accounts
 from .api.transfers import Transfers
+from .api.orders import Orders
 
 from .config import (
     USER_EMAIL, USER_PASSWORD, CLIENT_ID, SINGLE_REQUEST_TIMEOUT,
@@ -95,4 +97,18 @@ class GBMPlusAPI(object):
 
         # API endpoints by section
         self.accounts = Accounts(self._session) 
-        self.transfers = Transfers(self._session) 
+        self.transfers = Transfers(self._session)
+        self.orders = Orders(self._session, trading_types=TradingTypes)
+
+
+class OrderTypes(Enum):
+    Buy = 1
+    Sell = 8
+    
+class TradingTypes(Enum):
+    Limited = 0
+    Market = 5    
+    
+class InstrumentTypes(Enum):
+    SIC = 0
+    IPC = 2
