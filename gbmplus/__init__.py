@@ -7,6 +7,7 @@ from .rest_session import *
 from .api.accounts import Accounts
 from .api.transfers import Transfers
 from .api.orders import Orders
+from .api.tradingUSA import TradingUSA
 
 from .config import (
     USER_EMAIL, USER_PASSWORD, CLIENT_ID, SINGLE_REQUEST_TIMEOUT,
@@ -99,6 +100,7 @@ class GBMPlusAPI(object):
         self.accounts = Accounts(self._session) 
         self.transfers = Transfers(self._session)
         self.orders = Orders(self._session, trading_types=TradingTypes)
+        self.tradingUSA = TradingUSA(self._session)
 
 
 class OrderTypes(Enum):
