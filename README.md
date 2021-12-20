@@ -5,22 +5,16 @@ The GBM Plus API Python library aims to provide all current API calls to interfa
 ## Setup
 
 1. Get the CLIENT_ID from the GBM Plus login dashboard
-![where to find client id screenshot](.github/images/client_id.png)
+![(Where to find client_id screenshot) Navigate to Github repository to view image](.github/images/client_id.png)
 
 2. Keep your USER_EMAIL, USER_PASSWORD and CLIENT_ID safe and secure. You can use environment variables for development.
 
 3. Install the latest version of [Python 3](ttps://wiki.python.org/moin/BeginnersGuide/NonProgrammers)
 
-4. Clone this repository
-
-```shell
-git clone https://github.com/markzuckerbergas/gbmplus-api-python
-```
-
-5. Install requirements
-```shell
-pip install -r requirements.txt
-```
+4. Use _pip_ (or an alternative such as _easy_install_) to install the library from the Python [Package Index](https://pypi.org/project/gbmplus/):
+    * `pip install gbmplus`
+    * If you have both Python3 and Python2 installed, you may need to use `pip3` (so `pip3 install gbmplus`) along with `python3` on your system
+    * If gbmplus was previously installed, you can upgrade to the latest non-beta release with `pip install --upgrade gbmplus`
 
 ## Usage
 1. Export your USER_EMAIL, USER_PASSWORD and CLIENT_ID as [environment variables](https://www.twilio.com/blog/2017/01/how-to-set-environment-variables.html), for example:
@@ -41,7 +35,7 @@ pip install -r requirements.txt
 
 2. Alternatively, define your USER_EMAIL, USER_PASSWORD and CLIENT_ID as variables in your source code; this method is not recommended due to its inherent insecurity.
 
-3. Create a new Python file inside the cloned directory (for example, main.py). Single line of code to import and use the library goes at the top of your script:
+3. Single line of code to import and use the library goes at the top of your script:
 
     ```python
     import gbmplus
