@@ -2,6 +2,9 @@
 
 The GBM Plus API Python library aims to provide all current API calls to interface with the GBM Plus/Homebroker platform.
 
+DISCLAIMER: This is not an official repository. The documentation of the GBM Plus/Homebroker API is not publicly documented and the development of this repository consists mainly in reverse engineering the API. From the [terms and conditions](https://invertir.gbm.com/condiciones-del-servicio-gbmplus): "Se encuentra prohibido colocar o utilizar los Servicios y Contenidos del Portal en sitios o páginas propias o de terceros, sin autorización previa y por escrito de GBM." While directly consuming the API is not explicitly denied, GBM may consider this library as "own or third party site or page", so it is up to GBM to determine if the user is violating its terms and conditions when using this library. It is the user's responsibility to acknowledge this information before proceeding to use the library.
+https://invertir.gbm.com/condiciones-del-servicio-gbmplus
+
 ## Setup
 
 1. Get the CLIENT_ID from the GBM Plus login dashboard
