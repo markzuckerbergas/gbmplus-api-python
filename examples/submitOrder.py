@@ -27,7 +27,7 @@ def main():
     print("Order object to submit:", order_object)
     print("Submitting order...")
     
-    #Submit order, speficy duration (in days)
+    #Submit order, specify duration (in days)
     order = gbm.orders.submitOrder(legacy_contract_id, duration=1, order=order_object)
     print(order)
 
