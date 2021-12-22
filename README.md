@@ -17,9 +17,11 @@ The GBM Plus API Python library aims to provide all current API calls to interfa
     * If gbmplus was previously installed, you can upgrade to the latest non-beta release with `pip install --upgrade gbmplus`
 
 ## Usage
+
 1. Export your USER_EMAIL, USER_PASSWORD and CLIENT_ID as [environment variables](https://www.twilio.com/blog/2017/01/how-to-set-environment-variables.html), for example:
 
     Linux
+
     ```shell
     export USER_EMAIL=xxxxxx@xxxxx.com
     export USER_PASSWORD=shabadabadashabadabadaenelcentrodelplaneta
@@ -27,6 +29,7 @@ The GBM Plus API Python library aims to provide all current API calls to interfa
     ```
 
     Windows Powershell
+
     ```powershell
     $env:USER_EMAIL="xxxxxx@xxxxx.com"
     $env:USER_PASSWORD="shabadabadashabadabadaolvidadoenlabanqueta"
@@ -55,6 +58,7 @@ The GBM Plus API Python library aims to provide all current API calls to interfa
     ```
 
 ### Examples
+
 You can find working example scripts in the **examples** folder.
 | Script                     | Purpose                                                                         |
 |----------------------------|---------------------------------------------------------------------------------|
