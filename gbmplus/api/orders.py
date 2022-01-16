@@ -1,11 +1,11 @@
 from datetime import datetime, timezone
 from ..exceptions import *
+from . import gbm_metadata
 
 class Orders(object):
-    def __init__(self, session, accounts_dict, trading_types):
+    def __init__(self, session, trading_types):
         super(Orders, self).__init__()
-        self._session = session
-        self._accounts_dict = accounts_dict
+        self._session = session        
         self._trading_types = trading_types
 
     def generateOrderObject(self, legacy_contract_id, issuer, quantity, order_type, trading_type, instrument_type, price=None):
@@ -94,7 +94,7 @@ class Orders(object):
                 
         resource = "https://homebroker-api.gbm.com/GBMP/api/Operation/RegisterCapitalOrder"
         
-        legacy_contract_id = self._accounts_dict.get(strategy_name).get("legacy_contract_id")
+        legacy_contract_id = gbm_metadata.accounts_dict.get(strategy_name).get("legacy_contract_id")
         order = self.generateOrderObject(legacy_contract_id, issuer, quantity, order_type, trading_type, instrument_type, price)
         
         payload = {
@@ -102,7 +102,9 @@ class Orders(object):
             "duration": duration,
             "algoTradingTypeId": order.get("algoTradingTypeId"),
             "orders": [order]
-        }                
+        }
+        print(payload)
+        exit()         
 
         return self._session.post(metadata, resource, payload)
     

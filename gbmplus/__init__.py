@@ -8,6 +8,7 @@ from .api.accounts import Accounts
 from .api.transfers import Transfers
 from .api.orders import Orders
 from .api.tradingUSA import TradingUSA
+from .api import gbm_metadata
 
 from .config import (
     USER_EMAIL, USER_PASSWORD, CLIENT_ID, SINGLE_REQUEST_TIMEOUT,
@@ -99,12 +100,12 @@ class GBMPlusAPI(object):
         # API endpoints by section
         self.accounts = Accounts(self._session) 
         self.transfers = Transfers(self._session)
-        self.orders = Orders(self._session,
-                             accounts={element["name"]: element for element in self.accounts.getAccounts()},
-                             trading_types=TradingTypes
-        )
+        self.orders = Orders(self._session, trading_types=TradingTypes)
         self.tradingUSA = TradingUSA(self._session)
-
+        
+        # Initialize Metadata
+        gbm_metadata.init()
+        gbm_metadata.accounts_dict = {element["name"]: element for element in self.accounts.getAccounts()}
 
 class OrderTypes(Enum):
     Buy = 1
