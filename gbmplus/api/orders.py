@@ -102,9 +102,7 @@ class Orders(object):
             "duration": duration,
             "algoTradingTypeId": order.get("algoTradingTypeId"),
             "orders": [order]
-        }
-        print(payload)
-        exit()         
+        }             
 
         return self._session.post(metadata, resource, payload)
     
