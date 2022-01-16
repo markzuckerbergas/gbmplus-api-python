@@ -2,9 +2,10 @@ from datetime import datetime, timezone
 from ..exceptions import *
 
 class Orders(object):
-    def __init__(self, session, trading_types):
+    def __init__(self, session, accounts_dict, trading_types):
         super(Orders, self).__init__()
         self._session = session
+        self._accounts_dict = accounts_dict
         self._trading_types = trading_types
 
     def generateOrderObject(self, legacy_contract_id, issuer, quantity, order_type, trading_type, instrument_type, price=None):
@@ -44,12 +45,11 @@ class Orders(object):
         TickerName = issuer.replace(" ", "")
         return f"{str(Millis)}{legacy_contract_id}{TickerName}{str(quantity)}{str(instrument_type.value)}"
     
-
+    
     def submitOrder(self, legacy_contract_id, duration, order):
         """
         **Submit one order**
         https://homebroker-api.gbm.com/GBMP/api/Operation/RegisterCapitalOrder
-
         - legacy_contract_id (string): (required)
         - duration (int): (required)             
         - order (object): (required)
@@ -68,6 +68,41 @@ class Orders(object):
             "algoTradingTypeId": order.get("algoTradingTypeId"),
             "orders": [order]
         }
+
+        return self._session.post(metadata, resource, payload)
+    
+
+    def submitOrderToStrategy(self, strategy_name, issuer, quantity, order_type, trading_type, instrument_type, price=None, duration=1):
+        """
+        **Submit an order to a specific strategy**
+        https://homebroker-api.gbm.com/GBMP/api/Operation/RegisterCapitalOrder
+
+        - strategy_name (string): (required)
+        - issuer (string): (required)
+        - quantity (int): (required)
+        - order_type (enum): (required)
+        - trading_type (enum): (required)
+        - instrument_type (required)
+        - price (float): (optional)       
+        - duration (int): (optional)
+        """        
+                
+        metadata = {
+            'tags': ['order', 'generate order'],
+            'operation': 'submitOrder'
+        }
+                
+        resource = "https://homebroker-api.gbm.com/GBMP/api/Operation/RegisterCapitalOrder"
+        
+        legacy_contract_id = self._accounts_dict.get(strategy_name).get("legacy_contract_id")
+        order = self.generateOrderObject(legacy_contract_id, issuer, quantity, order_type, trading_type, instrument_type, price)
+        
+        payload = {
+            "contractId": legacy_contract_id,
+            "duration": duration,
+            "algoTradingTypeId": order.get("algoTradingTypeId"),
+            "orders": [order]
+        }                
 
         return self._session.post(metadata, resource, payload)
     

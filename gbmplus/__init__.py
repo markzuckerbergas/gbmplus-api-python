@@ -99,7 +99,10 @@ class GBMPlusAPI(object):
         # API endpoints by section
         self.accounts = Accounts(self._session) 
         self.transfers = Transfers(self._session)
-        self.orders = Orders(self._session, trading_types=TradingTypes)
+        self.orders = Orders(self._session,
+                             accounts={element["name"]: element for element in self.accounts.getAccounts()},
+                             trading_types=TradingTypes
+        )
         self.tradingUSA = TradingUSA(self._session)
 
 
